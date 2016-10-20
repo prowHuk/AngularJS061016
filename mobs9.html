@@ -1,0 +1,60 @@
+<!doctype html>
+<html ng-app="SampleApp">
+<head>
+	<meta charset="utf-8">
+	<title>ng-class</title>
+
+	  <link href="bootstrap.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+	
+<style>
+.color {
+	background-color: lightgreen;
+}
+
+.border {
+	border:1px solid black;
+}
+
+.size {
+	width:100px;
+	height:100px;
+	padding:10px;
+	margin:10px;
+}
+</style>
+<script>
+var module = angular.module("SampleApp", []);
+module.controller("SampleAppCtrl", function ($scope) {
+	$scope.type;
+	$scope.handleEvent = function (event) {
+		console.log(event);
+		$scope.type = event.type;
+	}
+	$scope.clickHandler = function (color){
+		alert(color);
+	}
+});
+</script>
+<style>
+div.test{
+background: green;
+  width: 100px;
+  height: 100px;
+  padding: 4x;
+  color: #fff;
+}
+</style>
+</head>
+<div ng-controller="SampleAppCtrl">
+	<div class="test" ngmousecenter="handleEvent($event)" ng-mouseleave="handleEvent($event)">
+		{{type}}
+	</div>
+	<ul>
+		<li ng-repeat="item in ['red','green','blue']" ng-click="clickHandler(item)">{{item}}</li>	
+	</ul>
+	</div>
+	
+		
+</body>
+</html>

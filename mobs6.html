@@ -1,0 +1,55 @@
+<!doctype html>
+<html ng-app="SampleApp">
+<head>
+	<meta charset="utf-8">
+	<title>ng-class</title>
+
+
+	  <link href="bootstrap.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+	
+<style>
+	.lightGreen {
+			background-color: lightgreen;
+		}
+
+		.lightBlue {
+			background-color: lightblue;
+		}
+
+		.lightCoral {
+			background-color: lightcoral;
+		}
+		
+		.test-div {
+			border:1px solid black;
+			width:100px;
+			height:100px;
+			padding:10px;
+			margin:10px;
+		}
+</style>
+<script>
+var app = angular.module("SampleApp", []);
+
+		app.controller("SampleAppCtrl", function ($scope) {
+
+			$scope.clickHandler = function () {
+				$scope.classNames = ["test-div", "lightGreen"];
+			}
+
+		});
+</script>
+
+</head>
+<body ng-controller="SampleAppCtrl">
+	
+	<div class="container">
+
+		<button ng-click="clickHandler()">Set classes</button>
+
+		<div ng-class="classNames">Test</div>
+
+	</div>
+</body>
+</html>

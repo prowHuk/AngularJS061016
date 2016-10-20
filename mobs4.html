@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html ng-app="SampleApp">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Jumbular</title>
+
+    <!-- Bootstrap -->
+
+    <link href="bootstrap.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+ <script>
+   var app = angular.module("SampleApp",[]);
+  
+  app.controller("SampleAppCtrl", function ($scope){
+  $scope.selectedClass = "lightgreen";
+  $scope.classNames = [{ displayName: "Light Green", value: "lightGreen"},
+  {displayName: "Light Blue", value: "lightBlue"},
+  {displayName: "Light Coral", value: "lightCoral"}];
+});
+</script>
+<style>
+.lightGreen {
+  background-color: lightgreen;
+}
+.lightBlue{
+  background-color: lightblue;
+}
+.lightCoral {
+  background-color: lightcoral;
+}
+.test-div{
+  border:1px solid black;
+  width: 100px;
+  height: 100px;
+  padding: 10px;
+}
+</style>
+  </head>
+ <body ng-controller="SampleAppCtrl">
+ 		<div class="container">
+     <div class="row well">
+       <div class="radio" ng-repeat="item in classNames">
+        <label>
+<input type="radio" name="color" ng-model="$parent.selectedClass" value="{{item.value}}"/> {{item.displayName}}
+        </label>
+       </div>
+     </div> 
+     <div class="test-div" ng-class="selectedClass">{{selectedClass}}</div>
+    </div>
+  
+     <script type="text/javascript" src="js/jquery.min.js"></script>
+     
+		<script src="bootstrap.min.js"></script>
+  </body>
+</html>

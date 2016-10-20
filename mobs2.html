@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html ng-app="SampleApp">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Jumbular</title>
+
+    <!-- Bootstrap -->
+
+       <link href="bootstrap.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+ <script>
+   var app = angular.module("SampleApp",[]);
+  
+  app.controller("SampleAppCtrl", function ($scope){
+  $scope.hideElem1=false;
+  $scope.hideElem2=false;
+  $scope.hideElem3=false;
+  });
+</script>
+<style>
+div {
+
+	display:inline-block;
+	border:1px solid gray;
+	border-radius: 3px;
+	margin: 14px;
+	padding: 30px;
+}
+#d1 {
+	background-color: lightgreen;
+}
+#d2 {
+	background-color: lightblue;
+}
+#d3 {
+	background-color: lightcoral;
+}
+</style>
+  </head>
+ <body ng-controller="SampleAppCtrl">
+ 		<div>
+	<input type="checkbox" ng-model="hideElem1" />Hide Element 1 <br/>
+	<input type="checkbox" ng-model="hideElem2" />Hide Element 2 <br/>
+	<input type="checkbox" ng-model="hideElem3" />Hide Element 3 <br/>
+ 		</div>
+
+ <div id="d1" ng-show="hideElem1">Element 1</div>
+ <div id="d2" ng-show="hideElem2">Element 2</div>
+ <div id="d3" ng-show="hideElem3">Element 3</div>
+  
+     <script type="text/javascript" src="js/jquery.min.js"></script>
+     
+		<script src="bootstrap.min.js"></script>
+  </body>
+</html>
